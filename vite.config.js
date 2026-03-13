@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   preview: {
     allowedHosts: [
-      "frontendpedidos-production-5ecf.up.railway.app"
+      "frontendpedidos-production-5ecf.up.railway.app/api/v1"
     ]
   }
 })
