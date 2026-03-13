@@ -33,7 +33,7 @@ function PedidoForm() {
     e.preventDefault();
     try {
       setLoading(true);
-      await API.post("/pedidos", form);
+      await API.post("/api/v1/pedidos", form);
       alert("Pedido guardado correctamente");
       setForm({
         nombre: "",
