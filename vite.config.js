@@ -4,8 +4,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   preview: {
-    allowedHosts: [
-      "frontendpedidos-production-5ecf.up.railway.app/api/v1"
-    ]
+    host: true,
+    allowedHosts: true
   }
 })
