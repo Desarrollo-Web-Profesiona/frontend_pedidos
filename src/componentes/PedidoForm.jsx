@@ -22,19 +22,28 @@ function PedidoForm() {
 
   const handlePagadoChange = (e) => {
     const { value, checked } = e.target;
+
     if (checked) {
       setForm({ ...form, pagado: [...form.pagado, value] });
     } else {
-      setForm({ ...form, pagado: form.pagado.filter((m) => m !== value) });
+      setForm({
+        ...form,
+        pagado: form.pagado.filter((m) => m !== value)
+      });
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       setLoading(true);
+
+      // ✅ ruta correcta usando /api/v1
       await API.post("/pedidos", form);
+
       alert("Pedido guardado correctamente");
+
       setForm({
         nombre: "",
         telefono: "",
@@ -46,8 +55,9 @@ function PedidoForm() {
         abono: "",
         comentario: ""
       });
-      // eslint-disable-next-line no-unused-vars
+
     } catch (error) {
+      console.error(error);
       alert("Error al guardar");
     } finally {
       setLoading(false);
@@ -57,6 +67,7 @@ function PedidoForm() {
   return (
     <div className="form-container">
       <h2 className="form-title">📦 Registro de Pedido</h2>
+
       <form onSubmit={handleSubmit}>
 
         {/* Nombre */}
